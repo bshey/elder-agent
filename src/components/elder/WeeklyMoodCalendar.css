@@ -1,0 +1,102 @@
+/* ============================================
+   Weekly Mood Calendar Styles
+   ============================================ */
+
+.weekly-mood-calendar {
+    width: 100%;
+}
+
+.week-days {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+}
+
+/* Day Item */
+.day-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm);
+    background: none;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.day-item:hover {
+    background: var(--color-warm-cream-dark);
+}
+
+.day-item--today {
+    background: var(--color-warm-cream-dark);
+}
+
+.day-item--today .day-name {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-alpine-blue);
+}
+
+/* Day Name */
+.day-name {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+}
+
+/* Day Circle */
+.day-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    transition: transform var(--transition-fast);
+}
+
+.day-item:hover .day-circle {
+    transform: scale(1.1);
+}
+
+/* Mood Colors */
+.mood--good {
+    background: var(--color-mood-good);
+}
+
+.mood--okay {
+    background: var(--color-mood-okay);
+}
+
+.mood--not-well {
+    background: var(--color-mood-not-well);
+}
+
+.mood--missing {
+    background: var(--color-mood-missing);
+    color: var(--text-secondary);
+}
+
+/* Day Number */
+.day-number {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .day-circle {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .day-name {
+        font-size: 12px;
+    }
+}

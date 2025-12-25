@@ -1,0 +1,32 @@
+/* ============================================
+   Layout Component Styles
+   ============================================ */
+
+.layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-primary);
+}
+
+/* ---- Main Content Area ---- */
+.layout-main {
+    flex: 1;
+    /* Add padding for fixed bottom nav */
+    padding-bottom: calc(var(--nav-height) + var(--spacing-lg));
+}
+
+.layout-content {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+/* ---- Advocate Layout Variant ---- */
+.layout--advocate .layout-main {
+    padding-bottom: var(--spacing-xl);
+}
+
+.layout--advocate .layout-content {
+    max-width: 900px;
+}

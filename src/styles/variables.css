@@ -1,0 +1,118 @@
+/* ============================================
+   Silvermaner Design System - CSS Variables
+   Swiss-inspired, Elderly-Friendly Color Palette
+   ============================================ */
+
+:root {
+    /* ---- Primary Brand Colors ---- */
+    --color-alpine-blue: #4A6FA5;
+    --color-alpine-blue-light: #6B8FC5;
+    --color-alpine-blue-dark: #3A5F85;
+
+    --color-swiss-meadow: #7CB342;
+    --color-swiss-meadow-light: #9CCC5A;
+    --color-swiss-meadow-dark: #5C9322;
+
+    --color-warm-cream: #FFF8E7;
+    --color-warm-cream-dark: #F5EED7;
+
+    --color-gentle-charcoal: #3D3D3D;
+    --color-gentle-charcoal-light: #5D5D5D;
+
+    /* ---- Accent Colors ---- */
+    --color-mountain-rose: #E57373;
+    --color-mountain-rose-light: #FFAB91;
+    --color-mountain-rose-dark: #C55A5A;
+
+    --color-golden-hour: #FFB74D;
+    --color-golden-hour-light: #FFD180;
+    --color-golden-hour-dark: #E5A33D;
+
+    --color-snow-white: #FFFFFF;
+
+    /* ---- Swiss Flag Colors ---- */
+    --color-swiss-red: #CE1126;
+    --color-swiss-white: #FFFFFF;
+
+    /* ---- Semantic Colors ---- */
+    --color-success: var(--color-swiss-meadow);
+    --color-warning: var(--color-golden-hour);
+    --color-danger: var(--color-mountain-rose);
+    --color-info: var(--color-alpine-blue);
+
+    /* ---- Mood Colors ---- */
+    --color-mood-good: #7CB342;
+    --color-mood-okay: #FFB74D;
+    --color-mood-not-well: #E57373;
+    --color-mood-missing: #BDBDBD;
+
+    /* ---- Background Colors ---- */
+    --bg-primary: var(--color-warm-cream);
+    --bg-secondary: var(--color-snow-white);
+    --bg-card: var(--color-snow-white);
+
+    /* ---- Text Colors ---- */
+    --text-primary: var(--color-gentle-charcoal);
+    --text-secondary: var(--color-gentle-charcoal-light);
+    --text-inverse: var(--color-snow-white);
+    --text-link: var(--color-alpine-blue);
+
+    /* ---- Typography ---- */
+    --font-family-primary: 'Nunito', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    --font-size-xs: 16px;
+    --font-size-sm: 18px;
+    --font-size-base: 20px;
+    --font-size-lg: 22px;
+    --font-size-xl: 24px;
+    --font-size-2xl: 28px;
+    --font-size-3xl: 32px;
+    --font-size-4xl: 40px;
+
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    --line-height-tight: 1.3;
+    --line-height-normal: 1.6;
+    --line-height-relaxed: 1.8;
+
+    /* ---- Spacing ---- */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-2xl: 48px;
+    --spacing-3xl: 64px;
+
+    /* ---- Layout ---- */
+    --max-content-width: 800px;
+    --nav-height: 80px;
+    --header-height: 70px;
+
+    /* ---- Border Radius ---- */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-full: 9999px;
+
+    /* ---- Shadows ---- */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --shadow-xl: 0 12px 32px rgba(0, 0, 0, 0.15);
+
+    /* ---- Transitions ---- */
+    --transition-fast: 150ms ease;
+    --transition-normal: 250ms ease;
+    --transition-slow: 400ms ease;
+
+    /* ---- Button Sizes (Elderly-Friendly) ---- */
+    --button-min-height: 60px;
+    --button-min-width: 200px;
+    --button-padding: 16px 32px;
+    --touch-target-min: 48px;
+}

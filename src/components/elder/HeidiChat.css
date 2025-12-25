@@ -1,0 +1,329 @@
+/* ============================================
+   Heidi Chat Widget Styles
+   ============================================ */
+
+.heidi-chat {
+    position: fixed;
+    bottom: calc(var(--nav-height) + var(--spacing-lg));
+    right: var(--spacing-lg);
+    z-index: 90;
+}
+
+/* ---- Collapsed Trigger ---- */
+.heidi-chat-trigger {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: linear-gradient(135deg, var(--color-alpine-blue), var(--color-alpine-blue-light));
+    border: none;
+    border-radius: var(--radius-full);
+    padding: var(--spacing-sm) var(--spacing-lg) var(--spacing-sm) var(--spacing-sm);
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-normal);
+    animation: pulse-gentle 3s ease-in-out infinite;
+}
+
+@keyframes pulse-gentle {
+
+    0%,
+    100% {
+        box-shadow: var(--shadow-lg);
+    }
+
+    50% {
+        box-shadow: 0 8px 30px rgba(74, 111, 165, 0.4);
+    }
+}
+
+.heidi-chat-trigger:hover {
+    transform: scale(1.05);
+}
+
+.heidi-trigger-avatar {
+    font-size: 40px;
+    background: var(--bg-card);
+    border-radius: var(--radius-full);
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heidi-trigger-bubble {
+    color: var(--text-inverse);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    padding-right: var(--spacing-sm);
+}
+
+/* ---- Expanded Chat Window ---- */
+.heidi-chat--expanded {
+    bottom: var(--spacing-lg);
+    right: var(--spacing-lg);
+}
+
+.heidi-chat-window {
+    width: 380px;
+    max-width: calc(100vw - 32px);
+    max-height: calc(100vh - 120px);
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---- Header ---- */
+.heidi-chat-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: linear-gradient(135deg, var(--color-alpine-blue), var(--color-alpine-blue-light));
+    color: var(--text-inverse);
+}
+
+.heidi-chat-avatar {
+    font-size: 40px;
+    background: var(--bg-card);
+    border-radius: var(--radius-full);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heidi-chat-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.heidi-chat-name {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+}
+
+.heidi-chat-status {
+    font-size: var(--font-size-sm);
+    opacity: 0.9;
+}
+
+.heidi-chat-close {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: var(--radius-sm);
+    color: var(--text-inverse);
+    font-size: var(--font-size-lg);
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.heidi-chat-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* ---- Messages Area ---- */
+.heidi-chat-messages {
+    flex: 1;
+    min-height: 150px;
+    max-height: 250px;
+    overflow-y: auto;
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    background: var(--color-warm-cream);
+}
+
+.heidi-welcome {
+    text-align: center;
+    padding: var(--spacing-lg);
+}
+
+.heidi-welcome-text {
+    font-size: var(--font-size-xl);
+    color: var(--color-alpine-blue);
+    margin: 0;
+    line-height: var(--line-height-relaxed);
+}
+
+/* Messages */
+.chat-message {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    max-width: 90%;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.chat-message--user {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+.chat-message--heidi {
+    align-self: flex-start;
+}
+
+.message-avatar {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.message-text {
+    background: var(--bg-card);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+    box-shadow: var(--shadow-sm);
+}
+
+.chat-message--user .message-text {
+    background: var(--color-alpine-blue);
+    color: var(--text-inverse);
+}
+
+.chat-message--heidi .message-text {
+    background: var(--bg-card);
+    color: var(--text-primary);
+}
+
+/* ---- Suggested Prompts ---- */
+.heidi-prompts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    background: var(--bg-card);
+}
+
+.heidi-prompt-btn {
+    background: var(--color-warm-cream);
+    border: 2px solid var(--color-warm-cream-dark);
+    border-radius: var(--radius-full);
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+}
+
+.heidi-prompt-btn:hover {
+    background: var(--color-alpine-blue);
+    border-color: var(--color-alpine-blue);
+    color: var(--text-inverse);
+    transform: translateY(-2px);
+}
+
+/* ---- Input Area ---- */
+.heidi-chat-input {
+    display: flex;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    background: var(--bg-card);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.heidi-input-field {
+    flex: 1;
+    padding: var(--spacing-md);
+    border: 2px solid var(--color-warm-cream-dark);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-lg);
+    font-family: var(--font-family-primary);
+    transition: border-color var(--transition-fast);
+}
+
+.heidi-input-field:focus {
+    outline: none;
+    border-color: var(--color-alpine-blue);
+}
+
+.heidi-input-field::placeholder {
+    color: var(--text-secondary);
+}
+
+.heidi-send-btn {
+    background: var(--color-alpine-blue);
+    border: none;
+    border-radius: var(--radius-md);
+    color: var(--text-inverse);
+    font-size: var(--font-size-xl);
+    width: 50px;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.heidi-send-btn:hover {
+    background: var(--color-alpine-blue-dark);
+}
+
+/* Clear Button */
+.heidi-clear-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    padding: var(--spacing-sm);
+    cursor: pointer;
+    text-align: center;
+}
+
+.heidi-clear-btn:hover {
+    color: var(--color-mountain-rose);
+}
+
+/* ---- Mobile Adjustments ---- */
+@media (max-width: 480px) {
+    .heidi-chat-window {
+        width: calc(100vw - 32px);
+        max-height: 70vh;
+    }
+
+    .heidi-chat--expanded {
+        right: var(--spacing-md);
+        left: var(--spacing-md);
+        bottom: var(--spacing-md);
+    }
+
+    .heidi-prompt-btn {
+        font-size: 13px;
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+}

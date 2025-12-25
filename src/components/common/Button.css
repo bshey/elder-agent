@@ -1,0 +1,141 @@
+/* ============================================
+   Button Component Styles
+   Elderly-Friendly Design
+   ============================================ */
+
+.btn {
+    /* Base Styles */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+
+    /* Sizing - Elderly Friendly */
+    min-height: var(--button-min-height);
+    min-width: var(--button-min-width);
+    padding: var(--button-padding);
+
+    /* Typography */
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: center;
+
+    /* Shape */
+    border-radius: var(--radius-md);
+    border: 3px solid transparent;
+
+    /* Interaction */
+    cursor: pointer;
+    transition:
+        background-color var(--transition-fast),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+
+    /* Prevent text selection */
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ---- Hover & Active States ---- */
+.btn:hover:not(.btn--disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn:active:not(.btn--disabled) {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+/* ---- Focus State (Accessibility) ---- */
+.btn:focus-visible {
+    outline: 3px solid var(--color-alpine-blue);
+    outline-offset: 3px;
+}
+
+/* ---- Disabled State ---- */
+.btn--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ============================================
+   Button Variants
+   ============================================ */
+
+/* ---- Primary Button ---- */
+.btn--primary {
+    background-color: var(--color-alpine-blue);
+    color: var(--text-inverse);
+}
+
+.btn--primary:hover:not(.btn--disabled) {
+    background-color: var(--color-alpine-blue-dark);
+}
+
+/* ---- Secondary Button ---- */
+.btn--secondary {
+    background-color: var(--bg-card);
+    color: var(--color-alpine-blue);
+    border-color: var(--color-alpine-blue);
+}
+
+.btn--secondary:hover:not(.btn--disabled) {
+    background-color: var(--color-alpine-blue);
+    color: var(--text-inverse);
+}
+
+/* ---- Mood Buttons ---- */
+.btn--mood-good {
+    background-color: var(--color-mood-good);
+    color: var(--text-inverse);
+}
+
+.btn--mood-good:hover:not(.btn--disabled) {
+    background-color: var(--color-swiss-meadow-dark);
+}
+
+.btn--mood-okay {
+    background-color: var(--color-mood-okay);
+    color: var(--text-primary);
+}
+
+.btn--mood-okay:hover:not(.btn--disabled) {
+    background-color: var(--color-golden-hour-dark);
+}
+
+.btn--mood-bad {
+    background-color: var(--color-mood-not-well);
+    color: var(--text-inverse);
+}
+
+.btn--mood-bad:hover:not(.btn--disabled) {
+    background-color: var(--color-mountain-rose-dark);
+}
+
+/* ============================================
+   Button Sizes
+   ============================================ */
+
+.btn--normal {
+    min-height: var(--button-min-height);
+    font-size: var(--font-size-xl);
+}
+
+.btn--large {
+    min-height: 80px;
+    min-width: 250px;
+    font-size: var(--font-size-2xl);
+    padding: var(--spacing-lg) var(--spacing-xl);
+}
+
+/* ============================================
+   Button Modifiers
+   ============================================ */
+
+.btn--full-width {
+    width: 100%;
+}

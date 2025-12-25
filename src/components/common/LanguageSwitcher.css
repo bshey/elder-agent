@@ -1,0 +1,50 @@
+/* ============================================
+   Language Switcher Component Styles
+   ============================================ */
+
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+
+    cursor: pointer;
+    transition:
+        background-color var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast);
+
+    /* Ensure good touch target */
+    min-height: var(--touch-target-min);
+    min-width: 80px;
+}
+
+.language-switcher:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.language-switcher:active {
+    transform: scale(0.95);
+}
+
+.language-switcher:focus-visible {
+    outline: 3px solid var(--color-snow-white);
+    outline-offset: 2px;
+}
+
+.language-flag {
+    font-size: var(--font-size-xl);
+    line-height: 1;
+}
+
+.language-name {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-inverse);
+    letter-spacing: 0.5px;
+}

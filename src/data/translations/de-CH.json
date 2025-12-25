@@ -1,0 +1,73 @@
+{
+    "common": {
+        "appName": "Silvermaner",
+        "tagline": "Din Schwiizer Begleiter",
+        "madeIn": "Made in Switzerland",
+        "comingSoon": "Chunnt bald!"
+    },
+    "nav": {
+        "home": "Startsiite",
+        "health": "Gsundheit",
+        "schedule": "Kalender",
+        "contacts": "Kontäkt"
+    },
+    "home": {
+        "greeting": {
+            "morning": "Guete Morge",
+            "afternoon": "Guete Namittag",
+            "evening": "Guete Aabig"
+        },
+        "welcome": "Willkomme bi Silvermaner. Dini fründlichi Begleiterin Heidi isch da zum dir hälfe gsund und verbunde z'bliibe.",
+        "howFeeling": "Wie gaht's dir hüt?",
+        "checkedIn": "Du hesch hüt scho iigcheckt!",
+        "checkInAgain": "Nomol iichecke"
+    },
+    "mood": {
+        "good": "Mir gaht's guet",
+        "okay": "Es gaht",
+        "notWell": "Mir gaht's nöd so guet",
+        "emojiGood": "😊",
+        "emojiOkay": "😐",
+        "emojiNotWell": "😔"
+    },
+    "heidi": {
+        "responseGood": "Wunderbar! Ich wünsche dir en schöne Tag!",
+        "responseOkay": "Ich verstah. Denk dra, jede Tag isch en neue Tag. Cha ich dir mit öppis hälfe?",
+        "responseNotWell": "Das tuet mir leid z'ghöre. Ich bi für dich da.",
+        "notifyAdvocate": "Söll ich dini Familie informiere?"
+    },
+    "health": {
+        "title": "Mini Gsundheit",
+        "weeklyMood": "D'Stimmig vo dere Wuche",
+        "noData": "Nonig Gsundheitsdaten. Mach din täglichi Check-in!",
+        "trend": {
+            "improving": "Du machsch das super! Wiiter so!",
+            "stable": "Du bisch konstant. Guet gmacht!",
+            "declining": "Halt durch. Morn isch en neue Tag."
+        }
+    },
+    "schedule": {
+        "title": "Min Kalender",
+        "upcoming": "Kommendi Termin",
+        "today": "Hüt",
+        "tomorrow": "Morn",
+        "noAppointments": "Kei kommendi Termin"
+    },
+    "contacts": {
+        "title": "Mini Kontäkt",
+        "family": "Mini Familie",
+        "doctors": "Mini Doktore",
+        "call": "Aalüte",
+        "noContacts": "Nonig Kontäkt hinzuegfüegt"
+    },
+    "admin": {
+        "title": "Demo Admin Panel",
+        "userType": "Aktuelle Benutzertyp",
+        "elder": "Senior",
+        "advocate": "Begleiter",
+        "switchUser": "Benutzer wächsle",
+        "resetData": "Demo-Date zruggsetze",
+        "language": "Sprach",
+        "close": "Schliesse"
+    }
+}

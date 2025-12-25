@@ -1,0 +1,77 @@
+/* ============================================
+   Card Component Styles
+   ============================================ */
+
+.card {
+    background-color: var(--bg-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    transition: box-shadow var(--transition-normal);
+}
+
+/* ---- Card Variants ---- */
+.card--default {
+    background-color: var(--bg-card);
+}
+
+.card--highlighted {
+    background-color: var(--bg-card);
+    border-left: 4px solid var(--color-alpine-blue);
+}
+
+.card--alert {
+    background-color: var(--color-mountain-rose-light);
+    border-left: 4px solid var(--color-mountain-rose);
+}
+
+/* ---- Card Padding ---- */
+.card--padded {
+    padding: var(--spacing-xl);
+}
+
+/* ---- Card Hover ---- */
+.card:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+/* ============================================
+   Card Sub-Components
+   ============================================ */
+
+/* ---- Card Header ---- */
+.card-header {
+    padding: var(--spacing-lg) var(--spacing-xl);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.card-header h2,
+.card-header h3 {
+    margin: 0;
+    color: var(--text-primary);
+}
+
+/* If card is padded, adjust header */
+.card--padded .card-header {
+    margin: calc(-1 * var(--spacing-xl));
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-lg) var(--spacing-xl);
+}
+
+/* ---- Card Body ---- */
+.card-body {
+    /* Inherits padding from card--padded if applicable */
+}
+
+/* ---- Card Footer ---- */
+.card-footer {
+    padding: var(--spacing-lg) var(--spacing-xl);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    background-color: var(--color-warm-cream);
+}
+
+/* If card is padded, adjust footer */
+.card--padded .card-footer {
+    margin: calc(-1 * var(--spacing-xl));
+    margin-top: var(--spacing-lg);
+}

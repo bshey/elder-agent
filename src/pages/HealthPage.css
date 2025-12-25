@@ -1,0 +1,91 @@
+/* ============================================
+   Health Page Styles
+   ============================================ */
+
+.health-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+/* Calendar Card */
+.calendar-card {
+    padding: var(--spacing-xl);
+}
+
+.section-title {
+    font-size: var(--font-size-xl);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+/* Mood Stats */
+.mood-stats {
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.stat-text {
+    font-size: var(--font-size-lg);
+    color: var(--color-alpine-blue);
+    font-weight: var(--font-weight-semibold);
+}
+
+/* Day Detail Card */
+.day-detail-card {
+    text-align: center;
+}
+
+.day-detail-card h3 {
+    font-size: var(--font-size-lg);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.day-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.detail-emoji {
+    font-size: 48px;
+}
+
+.detail-time {
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+}
+
+.detail-notes {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: var(--color-warm-cream);
+    border-radius: var(--radius-md);
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.no-checkin {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+}
+
+/* Trend Card */
+.trend-card {
+    text-align: center;
+    background: linear-gradient(135deg,
+            var(--color-warm-cream) 0%,
+            var(--bg-card) 100%);
+}
+
+.trend-message {
+    font-size: var(--font-size-xl);
+    color: var(--color-alpine-blue);
+    margin: 0;
+    line-height: var(--line-height-relaxed);
+}

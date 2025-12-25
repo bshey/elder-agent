@@ -1,0 +1,200 @@
+/* ============================================
+   Advocate Dashboard Styles
+   ============================================ */
+
+.advocate-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.dashboard-header {
+    margin-bottom: var(--spacing-md);
+}
+
+/* Alert Banner */
+.alert-banner {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+}
+
+.alert-icon {
+    font-size: var(--font-size-2xl);
+}
+
+.alert-text {
+    font-size: var(--font-size-lg);
+    color: var(--color-mountain-rose-dark);
+    font-weight: var(--font-weight-medium);
+}
+
+/* Elder Summary */
+.elder-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+}
+
+.elder-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.elder-avatar {
+    font-size: 64px;
+    line-height: 1;
+}
+
+.elder-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.elder-name {
+    font-size: var(--font-size-2xl);
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.elder-age {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+}
+
+/* Last Check-in */
+.last-checkin {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--spacing-xs);
+}
+
+.checkin-label {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+}
+
+.checkin-value {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.checkin-emoji {
+    font-size: var(--font-size-2xl);
+}
+
+.checkin-time {
+    font-size: var(--font-size-lg);
+    color: var(--text-primary);
+    font-weight: var(--font-weight-medium);
+}
+
+/* Weekly Overview */
+.weekly-overview {
+    padding: var(--spacing-xl);
+}
+
+.section-title {
+    font-size: var(--font-size-xl);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.week-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-2xl);
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.stat-value {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+}
+
+.stat--good .stat-value {
+    color: var(--color-swiss-meadow);
+}
+
+.stat--total .stat-value {
+    color: var(--color-alpine-blue);
+}
+
+.stat-label {
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+}
+
+/* Upcoming Appointments */
+.upcoming-appointments {
+    padding: var(--spacing-xl);
+}
+
+.no-appointments {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.appointment-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.appointment-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: var(--color-warm-cream);
+    border-radius: var(--radius-md);
+}
+
+.apt-date {
+    min-width: 60px;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-alpine-blue);
+}
+
+.apt-time {
+    min-width: 50px;
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+}
+
+.apt-title {
+    flex: 1;
+    font-size: var(--font-size-lg);
+    color: var(--text-primary);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .elder-summary {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .last-checkin {
+        align-items: flex-start;
+    }
+}
