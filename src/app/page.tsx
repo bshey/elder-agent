@@ -5,40 +5,43 @@ import { Heart, Sun, Users, Wrench, Home, HelpCircle } from "lucide-react";
 import { ModuleButton } from "@/components/ModuleButton";
 import { VoiceButton } from "@/components/VoiceButton";
 import { VoiceOverlay } from "@/components/VoiceOverlay";
+import { useVoiceAssistant } from "@/hooks/useVoiceAssistant";
 import { getGreeting } from "@/lib/utils";
 import { mockUserProfile } from "@/lib/mock-data";
 
 export default function HomePage() {
   const [isVoiceOpen, setIsVoiceOpen] = useState(false);
-  const [voiceState, setVoiceState] = useState<
-    "idle" | "listening" | "processing" | "speaking"
-  >("idle");
-  const [transcript, setTranscript] = useState("");
-  const [response, setResponse] = useState("");
+
+  const {
+    state,
+    transcript,
+    response,
+    error,
+    isSupported,
+    startListening,
+    stop,
+  } = useVoiceAssistant({
+    onStateChange: (newState) => {
+      // Auto-continue listening after speaking
+      if (newState === "idle" && isVoiceOpen && transcript) {
+        // Small delay before allowing next input
+      }
+    },
+  });
 
   const greeting = getGreeting();
 
-  const handleVoiceStart = () => {
-    setVoiceState("listening");
-    setTranscript("");
-    setResponse("");
+  const handleOpenVoice = () => {
+    setIsVoiceOpen(true);
+  };
 
-    // Simulated voice flow for demo
-    setTimeout(() => {
-      setTranscript("What's on my calendar today?");
-      setVoiceState("processing");
+  const handleCloseVoice = () => {
+    stop();
+    setIsVoiceOpen(false);
+  };
 
-      setTimeout(() => {
-        setResponse(
-          "You have a quiet day today. Your next appointment is Friday at 10 AM with Dr. Smith for your annual checkup."
-        );
-        setVoiceState("speaking");
-
-        setTimeout(() => {
-          setVoiceState("idle");
-        }, 3000);
-      }, 1500);
-    }, 2000);
+  const handleStartListening = () => {
+    startListening();
   };
 
   return (
@@ -118,12 +121,14 @@ export default function HomePage() {
         {/* Voice Section */}
         <div className="mt-auto pt-8 flex flex-col items-center">
           <p className="text-muted text-lg mb-4 text-center animate-fade-in opacity-0 stagger-6">
-            How can I help you today?
+            {isSupported
+              ? "Tap to ask me anything"
+              : "Voice not available in this browser"}
           </p>
           <VoiceButton
-            isListening={voiceState === "listening"}
-            isProcessing={voiceState === "processing"}
-            onClick={() => setIsVoiceOpen(true)}
+            isListening={state === "listening"}
+            isProcessing={state === "processing"}
+            onClick={handleOpenVoice}
           />
         </div>
       </main>
@@ -131,16 +136,13 @@ export default function HomePage() {
       {/* Voice Overlay */}
       <VoiceOverlay
         isOpen={isVoiceOpen}
-        onClose={() => {
-          setIsVoiceOpen(false);
-          setVoiceState("idle");
-          setTranscript("");
-          setResponse("");
-        }}
-        state={voiceState}
+        onClose={handleCloseVoice}
+        state={state}
         transcript={transcript}
         response={response}
-        onStartListening={handleVoiceStart}
+        error={error}
+        onStartListening={handleStartListening}
+        isSupported={isSupported}
       />
     </div>
   );
