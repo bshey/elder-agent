@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Heart, Sun, Users, Wrench, Home, HelpCircle } from "lucide-react";
 import { ModuleButton } from "@/components/ModuleButton";
 import { VoiceButton } from "@/components/VoiceButton";
@@ -12,6 +12,14 @@ import { mockUserProfile } from "@/lib/mock-data";
 export default function HomePage() {
   const [isVoiceOpen, setIsVoiceOpen] = useState(false);
 
+  // Use refs to track state for the effect to avoid dependency cycles or stale closures if we were using callbacks
+  const isVoiceOpenRef = useRef(isVoiceOpen);
+
+  // Update ref when state changes
+  useEffect(() => {
+    isVoiceOpenRef.current = isVoiceOpen;
+  }, [isVoiceOpen]);
+
   const {
     state,
     transcript,
@@ -20,19 +28,28 @@ export default function HomePage() {
     isSupported,
     startListening,
     stop,
-  } = useVoiceAssistant({
-    onStateChange: (newState) => {
-      // Auto-continue listening after speaking
-      if (newState === "idle" && isVoiceOpen && transcript) {
-        // Small delay before allowing next input
-      }
-    },
-  });
+  } = useVoiceAssistant();
+
+  // Auto-restart listening loop
+  useEffect(() => {
+    if (state === "idle" && isVoiceOpen && response) {
+      const timer = setTimeout(() => {
+        if (isVoiceOpenRef.current) {
+          startListening();
+        }
+      }, 800); // Slightly longer delay for natural pacing
+      return () => clearTimeout(timer);
+    }
+  }, [state, isVoiceOpen, response, startListening]);
 
   const greeting = getGreeting();
 
   const handleOpenVoice = () => {
     setIsVoiceOpen(true);
+    // Auto-start listening when opening
+    setTimeout(() => {
+      startListening();
+    }, 100);
   };
 
   const handleCloseVoice = () => {
@@ -119,7 +136,8 @@ export default function HomePage() {
         </div>
 
         {/* Voice Section */}
-        <div className="mt-auto pt-8 flex flex-col items-center">
+        {/* Voice Section */}
+        <div className={`mt-auto pt-8 flex flex-col items-center z-10 w-full transition-opacity duration-300 ${isVoiceOpen ? "opacity-0 pointer-events-none" : "opacity-100"}`}>
           <p className="text-muted text-lg mb-4 text-center animate-fade-in opacity-0 stagger-6">
             {isSupported
               ? "Tap to ask me anything"

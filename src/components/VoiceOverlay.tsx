@@ -30,7 +30,7 @@ export function VoiceOverlay({
     return (
         <Dialog.Root open={isOpen} onOpenChange={(open) => !open && onClose()}>
             <Dialog.Portal>
-                <Dialog.Overlay className="fixed inset-0 bg-black/60 backdrop-blur-sm animate-fade-in" />
+                <Dialog.Overlay className="fixed inset-0 bg-black/80 backdrop-blur-md animate-fade-in" />
                 <Dialog.Content
                     className={cn(
                         "fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2",
@@ -90,9 +90,9 @@ export function VoiceOverlay({
                             </div>
                         </div>
 
-                        {/* Status text */}
+                        {/* Status text - Updated to reflect auto-start */}
                         <p className="text-2xl font-medium mb-4">
-                            {state === "idle" && "Tap to speak"}
+                            {state === "idle" && "Ready"}
                             {state === "listening" && "Listening..."}
                             {state === "processing" && "Thinking..."}
                             {state === "speaking" && "Speaking..."}
@@ -121,25 +121,13 @@ export function VoiceOverlay({
                             </div>
                         )}
 
-                        {/* Action button */}
-                        {state === "idle" && isSupported && (
-                            <button
-                                onClick={onStartListening}
-                                className="mt-6 px-8 py-4 rounded-2xl bg-primary-500 hover:bg-primary-600 font-semibold text-lg transition-colors"
-                            >
-                                Start Speaking
-                            </button>
-                        )}
-
                         {/* Cancel button when active */}
-                        {(state === "listening" || state === "processing") && (
-                            <button
-                                onClick={onClose}
-                                className="mt-6 px-8 py-4 rounded-2xl bg-secondary-700 hover:bg-secondary-600 font-semibold text-lg transition-colors"
-                            >
-                                Cancel
-                            </button>
-                        )}
+                        <button
+                            onClick={onClose}
+                            className="mt-6 px-8 py-4 rounded-2xl bg-secondary-700 hover:bg-secondary-600 font-semibold text-lg transition-colors"
+                        >
+                            Close
+                        </button>
 
                         {/* Speak again when done */}
                         {state === "speaking" && (
